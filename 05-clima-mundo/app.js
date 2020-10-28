@@ -1,3 +1,4 @@
+require('dotenv').config()
 const { argv } = require('./config');
 const {  getCoordenadas } = require('./coordenadas')
 const { getClima } = require('./clima')
@@ -13,7 +14,7 @@ const getInfo = async( direccion )=> {
         longitud: lon,
         clima: {
             viento: respuesta.wind,
-            lluvia: respuesta.rain,
+            lluvia: respuesta.rain || '',
             nublado: respuesta.clouds
         }
     }
